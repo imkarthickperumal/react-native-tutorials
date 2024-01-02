@@ -5,6 +5,7 @@ import {
   TextInput,
   View,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 
 export default function App() {
@@ -35,11 +36,13 @@ export default function App() {
         </TouchableOpacity>
       </View>
       <View style={styles.goalsContainer}>
-        {coureseGoals.map((goal) => (
-          <View key={goal} style={styles.goalItem}>
-            <Text style={styles.goalText}>{goal}</Text>
-          </View>
-        ))}
+        <ScrollView alwaysBounceHorizontal={false}>
+          {coureseGoals.map((goal) => (
+            <View key={goal} style={styles.goalItem}>
+              <Text style={styles.goalText}>{goal}</Text>
+            </View>
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
