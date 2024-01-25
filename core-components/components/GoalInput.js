@@ -1,13 +1,9 @@
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { useState } from "react";
+import { View, TextInput, Button, StyleSheet } from "react-native";
 
 function GoalInput(props) {
   const [enteredGoalText, setEnteredGoalText] = useState("");
+
   function goalInputHandler(enteredText) {
     setEnteredGoalText(enteredText);
   }
@@ -21,16 +17,20 @@ function GoalInput(props) {
     <View style={styles.inputContainer}>
       <TextInput
         style={styles.textInput}
-        placeholder="Enter Your Goals!"
+        placeholder="Your course goal!"
         onChangeText={goalInputHandler}
         value={enteredGoalText}
       />
-      <TouchableOpacity style={styles.btnItem} onPress={addGoalHandler}>
-        <Text style={{ color: "white" }}>Add Goal</Text>
-      </TouchableOpacity>
+      <Button
+        title="Add Goal"
+        style={styles.btnItem}
+        onPress={addGoalHandler}
+      />
     </View>
   );
 }
+
+export default GoalInput;
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     borderBottomWidth: 1,
     borderBottomColor: "#cccccc",
-    borderRadius: 6,
   },
   textInput: {
     borderWidth: 1,
@@ -59,5 +58,3 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
-
-export default GoalInput;
