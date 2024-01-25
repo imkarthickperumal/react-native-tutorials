@@ -1,21 +1,9 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import GoalItem from "./components/GoalItem";
 
 export default function App() {
-  const [enteredGoalText, setEnteredGoalText] = useState("");
   const [coureseGoals, setCoureseGoals] = useState([]);
-
-  function goalInputHandler(enteredText) {
-    setEnteredGoalText(enteredText);
-  }
 
   function addGoalHandler() {
     setCoureseGoals((currentCourseGoals) => [
@@ -26,21 +14,11 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.textInput}
-          placeholder="Enter Your Goals!"
-          onChangeText={goalInputHandler}
-        />
-        <TouchableOpacity style={styles.btnItem} onPress={addGoalHandler}>
-          <Text style={{ color: "white" }}>Add Goal</Text>
-        </TouchableOpacity>
-      </View>
       <View style={styles.goalsContainer}>
         <FlatList
           data={coureseGoals}
           renderItem={(itemData) => {
-            return <GoalItem />;
+            return <GoalItem onAddGoal={addGoalHandler} />;
           }}
           keyExtractor={(item, index) => {
             return item.id;
