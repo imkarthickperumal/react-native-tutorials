@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 24,
+    marginTop:50,
   },
   instructionText: {
     marginBottom: 12,
