@@ -69,12 +69,12 @@ function GameScreen({ userNumber, onGameOver }) {
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
             <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
-              <FontAwesome name="plus" size={24} color="white" />
+              <FontAwesome5 name="minus" size={24} color="white" />
             </PrimaryButton>
           </View>
           <View style={styles.buttonContainer}>
             <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
-              <FontAwesome5 name="minus" size={24} color="white" />
+              <FontAwesome name="plus" size={24} color="white" />
             </PrimaryButton>
           </View>
         </View>
@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 24,
-    marginTop: 50,
   },
   instructionText: {
     marginBottom: 12,
