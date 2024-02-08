@@ -9,9 +9,11 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <NavigationContainer>
-        <Stack.Screen name="MeanCategories" component={CategoriesScreen} />
+        <Stack.Navigator>
+          <Stack.Screen name="MeanCategories" component={CategoriesScreen} />
+        </Stack.Navigator>
       </NavigationContainer>
     </>
   );
