@@ -3,13 +3,19 @@ import CategoryGridTile from "../components/CategoryGridTile";
 
 import { CATEGORIES } from "../data/dummy-data";
 
-function renderCategoryItem(itemData) {
-  return (
-    <CategoryGridTile title={itemData.item.title} color={itemData.item.color} />
-  );
-}
-
-function CategoriesScreen() {
+function CategoriesScreen({ navigation }) {
+  function renderCategoryItem(itemData) {
+    function pressHandler() {
+      navigation.navigate("MealsOverview");
+    }
+    return (
+      <CategoryGridTile
+        title={itemData.item.title}
+        color={itemData.item.color}
+        onPress={pressHandler}
+      />
+    );
+  }
   return (
     <FlatList
       data={CATEGORIES}
@@ -21,13 +27,3 @@ function CategoriesScreen() {
 }
 
 export default CategoriesScreen;
-
-const style = StyleSheet.create({
-    gridItem : {
-        flex:1,
-        margin:16,
-        height:150,
-        borderRadius:8,
-        elevation:4
-    }
-})
